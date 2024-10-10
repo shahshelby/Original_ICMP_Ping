@@ -26,7 +26,7 @@ results = {}
 # Function to check the ping status of an IP and update the result in the dictionary
 def check_ping(ip, sw_name):
     success = os.system(f'ping -n 1 {ip} > nul') == 0  # True if ping successful
-    status = '✔️' if success else '❌'  # Status message
+    status = 'UP!' if success else 'DOWN!'  # Status message
     with lock:
         results[sw_name] = status  # Update the results dictionary with the switch status
 
